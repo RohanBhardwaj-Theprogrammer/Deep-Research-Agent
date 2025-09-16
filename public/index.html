@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deep Research Agent</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Deep Research Agent</h1>
+      <p>Ask a question and get a researched report with citations.</p>
+      <div class="healthbar">
+        <span id="dbStatus" class="pill">DB: unknown</span>
+        <span id="llmStatus" class="pill">LLM: unknown</span>
+      </div>
+    </header>
+
+    <main class="chat">
+      <div id="messages" class="messages"></div>
+
+      <div class="composer">
+        <div class="row">
+          <input id="input" class="input-text" type="text" placeholder="Ask your question..." />
+          <button id="sendBtn" class="send">Send</button>
+        </div>
+        <div class="row fine">
+          <label class="control">
+            <span>Max sources</span>
+            <input id="maxDocs" type="number" min="3" max="20" value="12" />
+          </label>
+          <span class="spacer"></span>
+          <span id="hint" class="hint">Enter to send</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
