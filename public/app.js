@@ -23,19 +23,10 @@ async function getText(url) {
 const messagesEl = document.getElementById('messages');
 const inputEl = document.getElementById('input');
 const sendBtn = document.getElementById('sendBtn');
-const dbStatus = document.getElementById('dbStatus');
 const llmStatus = document.getElementById('llmStatus');
 const maxDocsEl = document.getElementById('maxDocs');
 
 async function refreshHealth() {
-  try {
-    const db = await getJSON('/health');
-    dbStatus.textContent = db.ok ? 'DB: ok' : 'DB: error';
-    dbStatus.style.color = db.ok ? '#3fb950' : '#f85149';
-  } catch (e) {
-    dbStatus.textContent = 'DB: error';
-    dbStatus.style.color = '#f85149';
-  }
   try {
     const llm = await getJSON('/health/llm');
     llmStatus.textContent = llm.ok ? `LLM: ${llm.model || 'ok'}` : 'LLM: error';
